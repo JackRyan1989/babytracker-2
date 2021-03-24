@@ -1,9 +1,10 @@
 <script>
     import Save from "./save_button.svelte";
+    export let appInfo;
 </script>
 
 <section>
-    <Save/>
+    <Save {appInfo}/>
 </section>
 
 <style>

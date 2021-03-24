@@ -1,6 +1,5 @@
 <script>
  import { saveData } from "../../stores/auth_store.js";
-
  function addToCollection(e) {
     e.preventDefault();
     saveData;
