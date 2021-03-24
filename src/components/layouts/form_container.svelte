@@ -1,7 +1,7 @@
 <script>
-  import InputWindow from "./input_window.svelte";
-  import OutputWindow from "./output_window.svelte";
-  import Buttons from "./button_container.svelte";
+  import InputWindow from "../windows/input_window.svelte";
+  import OutputWindow from "../windows/output_window.svelte";
+  import Buttons from "../buttons/button_container.svelte";
 </script>
 
 <form>

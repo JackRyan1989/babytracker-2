@@ -1,13 +1,9 @@
 <script>
-    import Load from "./load_button.svelte";
     import Save from "./save_button.svelte";
-    import Clear from "./clear_button.svelte"
 </script>
 
 <section>
-    <Load/>
     <Save/>
-    <Clear/>
 </section>
 
 <style>

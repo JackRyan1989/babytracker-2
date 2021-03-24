@@ -4,7 +4,7 @@
 </svelte:head>
 
 <script>
-	import Form from "./components/form_container.svelte";
+	import Form from "./components/layouts/form_container.svelte";
 </script>
 
 <h1 role="banner">Ezra Tracking</h1>

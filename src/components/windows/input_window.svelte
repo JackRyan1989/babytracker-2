@@ -1,4 +1,5 @@
 <script>
+  //Take input and write to the store
 </script>
 
 <textarea id="input_entry" placeholder="Type info about Ez here!" rows="8" />
