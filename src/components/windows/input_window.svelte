@@ -1,8 +1,18 @@
 <script>
-  //Take input and write to the store
+  import { data } from "../../stores/store.js";
+  let content = {
+    input_entry: "",
+  }
+
+  export let handleChange;
+  handleChange = (event) => {
+    content[event.target.id] = event.target.value;
+    data.addData(content[event.target.id])
+  };
+
 </script>
 
-<textarea id="input_entry" placeholder="Type info about Ez here!" rows="8" />
+<textarea on:input={handleChange} id="input_entry" placeholder="Type info about Ez here!" rows="8" />
 
 <style>
   textarea {

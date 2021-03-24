@@ -5,6 +5,13 @@
 
 <script>
 	import Form from "./components/layouts/form_container.svelte";
+	import { login } from "./stores/auth_store";
+	import { onMount } from "svelte";
+
+	onMount(async () => {
+		login;
+	});
+
 </script>
 
 <h1 role="banner">Ezra Tracking</h1>

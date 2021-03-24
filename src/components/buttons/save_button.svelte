@@ -1,8 +1,13 @@
 <script>
+ import { saveData } from "../../stores/auth_store.js";
 
+ function addToCollection(e) {
+    e.preventDefault();
+    saveData;
+ }
 </script>
 
-<button>Save</button>
+<button on:click={addToCollection}>Save</button>
 
 <style>
     button {

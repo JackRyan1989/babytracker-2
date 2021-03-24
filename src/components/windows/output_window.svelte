@@ -1,11 +1,11 @@
 <script>
-//Grab data from the store and display it
+ import { data } from "../../stores/store.js";
 </script>
 
 <section>
     <h2>The Latest on Ez</h2>
     <div class="output_container">
-    
+    {$data}
 </div>
 </section>
 
