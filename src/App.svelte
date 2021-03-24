@@ -5,19 +5,18 @@
 
 <script>
 	import Form from "./components/layouts/form_container.svelte";
-	import { login } from "./stores/auth_store";
+	import { loginUser } from "./stores/auth_store";
 	import { onMount } from "svelte";
-	export let appInfo;
-
+	
 	onMount(async () => {
-		appInfo = login;
+		loginUser();
 	});
 
 </script>
 
 <h1 role="banner">Ezra Tracking</h1>
 <main class="app">
-	<Form {appInfo}/>
+	<Form/>
 </main>
 <style>
 	h1 {

@@ -3,7 +3,6 @@ import * as Realm from "realm-web";
 // Set up Realm user auth
 const app = new Realm.App({ id: "ezranotes-jojyq" });
 const credentials = Realm.Credentials.anonymous();
-let appInfo = {};
 
 function assert(condition, message) {
   if (!condition) {
@@ -20,27 +19,32 @@ async function loginUser() {
       user.id === app.currentUser.id,
       "User ID not equal to current user ID."
     );
-    const mongodb = app.currentUser.mongoClient("mongodb-atlas");
-    const entries = mongodb.db("ezraNotes").collection("entries");
-    return (appInfo = {
-      user,
-      mongodb,
-      entries,
-    });
+    return user;
   } catch (err) {
     console.error("Failed to log in", err);
   }
 }
 
-async function save(input) {
-  console.log(entries);
+async function saveData(data) {
   try {
-    const result = await entries.insertOne(input);
+    const mongodb = app.currentUser.mongoClient("mongodb-atlas");
+    const entries = mongodb.db("ezranotes").collection("entries");
+    const result = await entries.insertOne(data);
     console.log(result);
   } catch (err) {
     console.log(err);
   }
 }
 
-export const login = loginUser();
-export const saveData = save();
+async function getData() {
+  try {
+    const mongodb = app.currentUser.mongoClient("mongodb-atlas");
+    const entries = mongodb.db("ezranotes").collection("entries");
+    const result = await entries.find();
+    console.log(`Get Data ${result}`);
+  } catch(err){
+
+  }
+}
+
+export {loginUser, getData, saveData};

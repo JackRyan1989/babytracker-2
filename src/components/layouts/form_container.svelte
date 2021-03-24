@@ -2,7 +2,6 @@
   import InputWindow from "../windows/input_window.svelte";
   import OutputWindow from "../windows/output_window.svelte";
   import Buttons from "../buttons/button_container.svelte";
-  export let appInfo;
 </script>
 
 <form>
@@ -13,7 +12,7 @@
     <OutputWindow />
   </div>
   <div class="buttons">
-    <Buttons {appInfo}/>
+    <Buttons/>
   </div>
 </form>
 

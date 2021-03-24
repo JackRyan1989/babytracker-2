@@ -1,8 +1,10 @@
 <script>
  import { saveData } from "../../stores/auth_store.js";
+ import { data } from "../../stores/store.js";
+ 
  function addToCollection(e) {
     e.preventDefault();
-    saveData;
+    saveData({dong: "test"});
  }
 </script>
 
