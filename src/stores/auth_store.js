@@ -26,13 +26,22 @@ async function loginUser() {
 }
 
 async function saveData(data) {
-  try {
-    const mongodb = app.currentUser.mongoClient("mongodb-atlas");
-    const entries = mongodb.db("ezranotes").collection("entries");
-    const result = await entries.insertOne(data);
-    console.log(result);
-  } catch (err) {
-    console.log(err);
+  if (data.action.length > 0) {
+    try {
+      const mongodb = app.currentUser.mongoClient("mongodb-atlas");
+      const entries = mongodb.db("ezranotes").collection("entries");
+      const result = await entries.insertOne(data);
+      if (result) {
+        return result
+      } else {
+        return
+      }
+    } catch (err) {
+      console.log(err);
+      return 
+    }
+  } else {
+    return
   }
 }
 
@@ -41,9 +50,14 @@ async function getData() {
     const mongodb = app.currentUser.mongoClient("mongodb-atlas");
     const entries = mongodb.db("ezranotes").collection("entries");
     const result = await entries.find();
-    console.log(`Get Data ${result}`);
+    if (result) {
+      return result;
+    } else {
+      return "Unable to get Ez data."
+    }
   } catch(err){
-
+    console.error(err);
+    return "Unable to get Ez data."
   }
 }
 

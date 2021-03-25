@@ -12,7 +12,7 @@
 
 </script>
 
-<textarea on:input={handleChange} id="input_entry" placeholder="Type info about Ez here!" rows="8" />
+<textarea on:input={handleChange} value={$data} id="input_entry" placeholder="Type info about Ez here!" rows="8" />
 
 <style>
   textarea {
