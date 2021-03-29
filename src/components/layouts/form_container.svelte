@@ -19,7 +19,7 @@
 <style>
   form {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
     grid-template-rows: 1fr minmax(1fr max-content);
   }
 

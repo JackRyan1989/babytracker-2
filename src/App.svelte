@@ -5,7 +5,7 @@
 
 <script>
 	import Form from "./components/layouts/form_container.svelte";
-	import { loginUser } from "./stores/auth_store";
+	import { loginUser } from "./stores/realm_store";
 	import { onMount } from "svelte";
 	
 	onMount(async () => {

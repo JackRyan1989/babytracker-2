@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
 
-function dataStore() {
+function inputStore() {
   const { subscribe, set, update } = writable("");
 
   return {
@@ -10,4 +10,4 @@ function dataStore() {
   };
 }
 
-export const data = dataStore();
+export const input = inputStore();

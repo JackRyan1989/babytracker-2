@@ -32,16 +32,16 @@ async function saveData(data) {
       const entries = mongodb.db("ezranotes").collection("entries");
       const result = await entries.insertOne(data);
       if (result) {
-        return result
+        return result;
       } else {
-        return
+        return;
       }
     } catch (err) {
       console.log(err);
-      return 
+      return;
     }
   } else {
-    return
+    return;
   }
 }
 
@@ -53,12 +53,12 @@ async function getData() {
     if (result) {
       return result;
     } else {
-      return "Unable to get Ez data."
+      return "Unable to get Ez data.";
     }
-  } catch(err){
+  } catch (err) {
     console.error(err);
-    return "Unable to get Ez data."
+    return "Unable to get Ez data.";
   }
 }
 
-export {loginUser, getData, saveData};
+export { loginUser, getData, saveData };

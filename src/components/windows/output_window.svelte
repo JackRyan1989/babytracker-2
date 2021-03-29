@@ -1,17 +1,14 @@
 <script>
   import { onMount } from "svelte";
-  import { getData } from "../../stores/auth_store.js";
+  import { getData } from "../../stores/realm_store.js";
+  import { output } from "../../stores/output_store";
 
-  let dispData = new Array();
   let error = false;
 
   function pullData() {
     getData().then((res) => {
       if (res.length) {
-        res.map((item) => {
-          dispData.push(item);
-        });
-        dispData = dispData;
+        output.addData(res);
       } else {
         error = true;
       }
@@ -29,7 +26,7 @@
     {#if error}
       <p>Could not load data :(</p>
     {:else}
-      {#each dispData as data}
+      {#each $output as data}
         <p>{data.action} {data.timestamp}</p>
       {/each}
     {/if}
