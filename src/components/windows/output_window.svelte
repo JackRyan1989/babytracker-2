@@ -48,4 +48,19 @@
     margin: 10% 0px;
     padding: 1%;
   }
+
+  /* Portrait */
+  @media only screen and (min-device-width: 200px) and (max-device-width: 812px) {
+    h2 {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      padding: 1%;
+    }
+
+    .output_container {
+      margin: 5% 0px;
+      padding: 1%;
+    }
+  }
 </style>

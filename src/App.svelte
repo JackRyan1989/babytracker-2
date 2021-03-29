@@ -19,6 +19,10 @@
 	<Form/>
 </main>
 <style>
+	* {
+		margin: 0px;
+		padding: 0px;
+	}
 	h1 {
 		display: none;
 	}

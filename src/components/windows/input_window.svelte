@@ -21,7 +21,7 @@
     height: 100%;
     flex: auto;
     min-height: 38rem;
-    border: none;
+    border: solid lightgrey 1px;
     background: transparent;
     font-size: 1.2rem;
     color: black;
@@ -33,4 +33,11 @@
     border: solid 2px black;
     outline: none;
   }
+
+  @media only screen and (min-device-width: 200px) and (max-device-width: 812px){
+    textarea {
+      min-height: 0.25vh;
+    }
+  }
+
 </style>

@@ -17,7 +17,6 @@
     });
   }
 
-
   function addToCollection(inputData) {
     return function (e) {
       e.preventDefault();
@@ -38,12 +37,13 @@
     };
   }
 </script>
-
+<section>
 <button on:click={addToCollection($input)}>Save</button>
 
 {#if error}
   <p>Please enter text before submitting.</p>
 {/if}
+</section>
 
 <style>
   button {
@@ -56,9 +56,23 @@
     font-size: 1.5em;
     border: none;
     height: min-content;
+    background-color: blue;
   }
 
   p {
     margin-left: 2%;
+  }
+
+  /* Portrait */
+  @media only screen and (min-device-width: 200px) and (max-device-width: 812px) {
+    section {
+      display: flex;
+      flex-flow: row wrap;
+      width: 100%;
+    }
+
+    button {
+      width: 25%;
+    }
   }
 </style>

@@ -12,7 +12,7 @@
     <OutputWindow />
   </div>
   <div class="buttons">
-    <Buttons/>
+    <Buttons />
   </div>
 </form>
 
@@ -42,5 +42,37 @@
   .buttons {
     grid-column: 1 / -1;
     grid-row: 2 / 2;
+  }
+
+  /* Portrait */
+  @media only screen and (min-device-width: 200px) and (max-device-width: 812px) {
+    form {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 0.5fr 1fr;
+    }
+
+    .input {
+      grid-column: 1 / -1;
+      grid-row: 2 / 2;
+    }
+
+    .output {
+      max-height: 270px;
+      grid-column: 1 / -1;
+      grid-row: 1 / 1;
+      border: none;
+      margin: 0px 0px 0px 2%;
+      padding: 2%;
+    }
+
+    .buttons {
+      grid-column: 1 / -1;
+      grid-row: 3 / 3;
+    }
+  }
+
+  /* Landscape */
+  @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
   }
 </style>
