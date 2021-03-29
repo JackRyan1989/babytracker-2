@@ -37,6 +37,7 @@
     };
   }
 </script>
+
 <section>
 <button on:click={addToCollection($input)}>Save</button>
 

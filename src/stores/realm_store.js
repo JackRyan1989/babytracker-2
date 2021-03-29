@@ -61,4 +61,18 @@ async function getData() {
   }
 }
 
-export { loginUser, getData, saveData };
+async function deleteData(input) {
+  try {
+    const mongodb = app.currentUser.mongoClient("mongodb-atlas");
+    const entries = mongodb.db("ezranotes").collection("entries");
+    entries
+      .deleteOne(input)
+      .then((result) => result.deletedCount)
+      .catch((err) => err);
+  } catch (err) {
+    console.error(err);
+    return "Unable to delete Ez data.";
+  }
+}
+
+export { loginUser, getData, saveData, deleteData };
