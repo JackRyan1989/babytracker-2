@@ -10,7 +10,7 @@ function outputStore() {
         output.map((item) => {
             dispData.push(item);
         });
-        return dispData.slice(Math.max(dispData.length - 6, 1)).reverse();
+        return dispData.slice(Math.max(dispData.length - 5, 1)).reverse();
     }),
     resetData: () => set(""),
   };
