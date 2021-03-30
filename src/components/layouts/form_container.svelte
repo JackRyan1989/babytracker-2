@@ -2,6 +2,23 @@
   import InputWindow from "../windows/input_window.svelte";
   import OutputWindow from "../windows/output_window.svelte";
   import Buttons from "../buttons/button_container.svelte";
+  import { getData, watchData } from "../../stores/realm_store.js";
+  import { output } from "../../stores/output_store";
+  import { onMount } from "svelte";
+
+  function pullData() {
+    getData().then((res) => {
+      if (res.length) {
+        output.addData(res);
+      } else {
+        error = true;
+      }
+    });
+  }
+
+  onMount(() => {
+    watchData(pullData);
+  });
 </script>
 
 <form>
@@ -9,7 +26,7 @@
     <InputWindow />
   </div>
   <div class="output">
-    <OutputWindow />
+    <OutputWindow {pullData}/>
   </div>
   <div class="buttons">
     <Buttons />

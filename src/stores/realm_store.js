@@ -94,4 +94,28 @@ async function updateData(query, update, options) {
   }
 }
 
-export { loginUser, getData, saveData, deleteData, updateData };
+async function watchData(fn) {
+  const mongodb = app.currentUser.mongoClient("mongodb-atlas");
+  const entries = mongodb.db("ezranotes").collection("entries");
+  for await (const change of entries.watch()) {
+    switch (change.operationType) {
+      case "insert": {
+        const { documentKey, fullDocument } = change;
+        fn();
+        break;
+      }
+      case "update": {
+        const { documentKey, fullDocument } = change;
+        fn();
+        break;
+      }
+      case "delete": {
+        const { documentKey } = change;
+        fn();
+        break;
+      }
+    }
+  }
+}
+
+export { loginUser, getData, saveData, deleteData, updateData, watchData };

@@ -1,6 +1,5 @@
 <script>
   import { onMount } from "svelte";
-  import { getData } from "../../stores/realm_store.js";
   import { output } from "../../stores/output_store";
   import DeleteButton from "../buttons/delete_button.svelte";
   import UpdateButton from "../buttons/update_button.svelte";
@@ -8,19 +7,10 @@
   let error = false;
   let edit = false;
   let dispId;
+  export let pullData;
 
   const toggleEdit = () => {
     edit = !edit;
-  }
-
-  function pullData() {
-    getData().then((res) => {
-      if (res.length) {
-        output.addData(res);
-      } else {
-        error = true;
-      }
-    });
   }
 
   onMount(async () => {
@@ -46,7 +36,7 @@
         {#if (edit) && (dispId == data._id) }
         <div class="editButtons">
           <DeleteButton item_id={data._id} {toggleEdit}/>
-          <UpdateButton item_id={data._id} {toggleEdit} />
+          <UpdateButton item_id={data._id} {toggleEdit}/>
         </div>
         {/if}
       </div>

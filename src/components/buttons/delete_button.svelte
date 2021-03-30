@@ -1,18 +1,7 @@
 <script>
-  import { deleteData, getData } from "../../stores/realm_store.js";
-  import { output } from "../../stores/output_store";
+  import { deleteData } from "../../stores/realm_store.js";
   export let item_id;
   export let toggleEdit;
-
-  function pullData() {
-    getData().then((res) => {
-      if (res.length) {
-        output.addData(res);
-      } else {
-        error = true;
-      }
-    });
-  }
 
   function removeFromCollection(id) {
     return function (e) {
@@ -21,7 +10,6 @@
         _id: id,
       };
       deleteData(query);
-      pullData();
       toggleEdit();
     };
   }

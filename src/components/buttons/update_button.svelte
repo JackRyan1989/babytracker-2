@@ -1,20 +1,9 @@
 <script>
-  import { updateData, getData } from "../../stores/realm_store.js";
-  import { output } from "../../stores/output_store";
+  import { updateData } from "../../stores/realm_store.js";
   import dayjs from "dayjs";
   import LocalizedFormat from "dayjs/plugin/localizedFormat";
   export let toggleEdit;
   export let item_id;
-
-  function pullData() {
-    getData().then((res) => {
-      if (res.length) {
-        output.addData(res);
-      } else {
-        error = true;
-      }
-    });
-  }
 
   function displayModal(e) {
     e.preventDefault();
@@ -30,8 +19,6 @@
 
   function updateCollection(input) {
     dayjs.extend(LocalizedFormat);
-    console.log(item_id);
-    console.log(input);
     let timestamp = dayjs().format("llll");
     let query = {
       _id: item_id,
@@ -44,7 +31,6 @@
     };
     const options = { upsert: false };
     updateData(query, update, options);
-    pullData();
     toggleEdit();
   }
 </script>

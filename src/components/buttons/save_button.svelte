@@ -1,21 +1,10 @@
 <script>
-  import { saveData, getData } from "../../stores/realm_store.js";
+  import { saveData } from "../../stores/realm_store.js";
   import { input } from "../../stores/input_store.js";
-  import { output } from "../../stores/output_store";
   import dayjs from "dayjs";
   import LocalizedFormat from "dayjs/plugin/localizedFormat";
 
   let error = false;
-
-  function pullData() {
-    getData().then((res) => {
-      if (res.length) {
-        output.addData(res);
-      } else {
-        error = true;
-      }
-    });
-  }
 
   function addToCollection(inputData) {
     return function (e) {
@@ -30,7 +19,6 @@
         saveData(dataObj);
         error = false;
         input.resetData();
-        pullData();
       } else {
         error = true;
       }
