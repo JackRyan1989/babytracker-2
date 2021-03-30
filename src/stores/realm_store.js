@@ -75,4 +75,23 @@ async function deleteData(input) {
   }
 }
 
-export { loginUser, getData, saveData, deleteData };
+async function updateData(query, update, options) {
+  try {
+    const mongodb = app.currentUser.mongoClient("mongodb-atlas");
+    const entries = mongodb.db("ezranotes").collection("entries");
+    entries
+      .updateOne(query, update, options)
+      .then((result) => {
+        const { matchedCount, modifiedCount } = result;
+        if (matchedCount && modifiedCount) {
+          console.log(`Successfully updated the item.`);
+        }
+      })
+      .catch((err) => console.error(`Failed to update the item: ${err}`));
+  } catch (err) {
+    console.error(err);
+    return "Unable to updated Ez data.";
+  }
+}
+
+export { loginUser, getData, saveData, deleteData, updateData };

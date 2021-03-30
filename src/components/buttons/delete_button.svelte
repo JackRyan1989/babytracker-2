@@ -39,13 +39,14 @@
     font-size: 1.25em;
     border: none;
     height: min-content;
-    background-color: red;
+    background-color: #9F353A;
   }
 
   /* Portrait */
   @media only screen and (min-device-width: 200px) and (max-device-width: 812px) {
     button {
       width: 25%;
+      margin: 5px 0px 15px 5.5%;
     }
   }
 </style>

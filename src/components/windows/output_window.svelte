@@ -3,6 +3,7 @@
   import { getData } from "../../stores/realm_store.js";
   import { output } from "../../stores/output_store";
   import DeleteButton from "../buttons/delete_button.svelte";
+  import UpdateButton from "../buttons/update_button.svelte";
 
   let error = false;
   let edit = false;
@@ -28,7 +29,6 @@
 
   function displayEdit(e) {
      dispId = e.target.id;
-     console.log(dispId)
      toggleEdit();
   }
 
@@ -46,6 +46,7 @@
         {#if (edit) && (dispId == data._id) }
         <div class="editButtons">
           <DeleteButton item_id={data._id} {toggleEdit}/>
+          <UpdateButton item_id={data._id} {toggleEdit} />
         </div>
         {/if}
       </div>
@@ -80,13 +81,21 @@
     }
 
     .output_container {
-      margin: 5% 0px;
+      margin: 10% 0px;
       padding: 1%;
     }
 
     p {
       font-size: 1.1em;
       text-decoration: underline;
+      margin: 0 0 10px 0 !important;
     }
+
+    .editButtons {
+      display: flex;
+      flex-wrap: row wrap;
+      justify-content: flex-start;
+    }
+
   }
 </style>

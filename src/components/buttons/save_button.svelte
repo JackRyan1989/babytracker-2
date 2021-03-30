@@ -57,7 +57,7 @@
     font-size: 1.5em;
     border: none;
     height: min-content;
-    background-color: blue;
+    background-color: #005CAF;
   }
 
   p {
