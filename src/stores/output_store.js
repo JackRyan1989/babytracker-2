@@ -10,6 +10,11 @@ function outputStore() {
         output.map((item) => {
             dispData.push(item);
         });
+        dispData.sort((a,b) => {
+          let dateA = new Date(a.timestamp);
+          let dateB = new Date(b.timestamp);
+          return dateA - dateB;
+        })
         return dispData.slice(Math.max(dispData.length - 5, 1)).reverse();
     }),
     resetData: () => set(""),

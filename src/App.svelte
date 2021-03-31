@@ -2,6 +2,7 @@
   import Form from "./components/layouts/form_container.svelte";
   import { loginUser } from "./stores/realm_store";
   import { onMount } from "svelte";
+  import Modal from "svelte-simple-modal";
 
   onMount(async () => {
     loginUser();
@@ -14,22 +15,13 @@
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400&display=swap"
     rel="stylesheet"
   />
-  <!-- UIkit CSS -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/css/uikit.min.css"
-  />
-
-  <!-- UIkit JS -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit.min.js"></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit-icons.min.js"></script>
 </svelte:head>
 
 <h1 role="banner">Ezra Tracking</h1>
 <main class="app">
-  <Form />
+  <Modal>
+    <Form />
+  </Modal>
 </main>
 
 <style>

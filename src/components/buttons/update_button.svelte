@@ -1,38 +1,20 @@
 <script>
-  import { updateData } from "../../stores/realm_store.js";
-  import dayjs from "dayjs";
-  import LocalizedFormat from "dayjs/plugin/localizedFormat";
+  import { getContext } from "svelte";
+  import Update from '../modals/update_modal.svelte';
   export let toggleEdit;
   export let item_id;
 
-  function displayModal(e) {
-    e.preventDefault();
-    UIkit.modal.prompt("Edit action:", "").then(
-      function (action) {
-        if (action === null) {
-          toggleEdit();
-          return
-        }
-        updateCollection(action);
-      });
+  const { open, close } = getContext('simple-modal');
+
+  const closeModal = () => {
+    close(Update);
   }
 
-  function updateCollection(input) {
-    dayjs.extend(LocalizedFormat);
-    let timestamp = dayjs().format("llll");
-    let query = {
-      _id: item_id,
-    };
-    let update = {
-      $set: {
-        action: input,
-        timestamp: timestamp,
-      },
-    };
-    const options = { upsert: false };
-    updateData(query, update, options);
-    toggleEdit();
-  }
+  const displayModal = (e) => {
+    e.preventDefault();
+    open(Update, {item_id, toggleEdit, closeModal});
+  };
+
 </script>
 
 <button on:click={displayModal}>Update</button>
