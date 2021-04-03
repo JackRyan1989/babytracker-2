@@ -6,4 +6,4 @@ Svelte + MongoDB Realm + DayJS + Simple Svelte Modal (https://github.com/fleksch
 
 Anon auth, so please do not abuse. May incorporate some NSFW filtering to keep the trolls out since it's public.
 
-erzabiz.netlify.app
+https://erzabiz.netlify.app
